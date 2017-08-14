@@ -9,85 +9,16 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-<!--    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
--->     <style>
-      @import url('https://fonts.googleapis.com/css?family=Oswald'); 
-      body{
-        background-color: rgb(250, 250, 251);
-        display: flex;
-        justify-content: space-between;
-        margin: 0;
-        padding: 1em;
-        font-size: 16px;
-      }
-      header{
-        display: block;
-        background: #fff;
-        margin-right: auto;
-        margin-left: auto;
-        width: 100%;
-        position: relative;
-      }
-      h1{
-        flex:2;
-        font-family: 'Oswald', sans-serif;
-        font-size: 1em;
-        font-weight: normal;
-      }
-      #resultado{
-       flex: 1; 
-        display: block;
-        width: 50%;
-        border:2px solid gray;
-        padding: 1em;
-      }
-      div{
-        font-family: 'Oswald', sans-serif;
-        text-align: center;
-      }
-     </style> 
+    <link rel="stylesheet" href="styles.css">  
+    
     <script>
-    
-      
-    </script>
-  </head>
-  <body>
-    <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-   
-    <h1>
-      Armar un sistema con una función que recibe dos parámetros del tipo entero y devuelve el mayor de ellos. 
-      
-      Hacer un programa que llame 5 veces a la función
-      pidiendo en cada oportunidad los datos al usuario y escribiendo en la página
-      cada resultado.
-    </h1>
-    <div id="resultado"></div>
-    <script>
-      var dato;
-      var numero1;
-      var numero2;
-      var dos = [];
-      var mayor;
-      var diiv;
-      var texto;
-    
-        prumpt();
-        validation();
-        asignaValores(dato);
-        elMayor(dos);
-        muestraResultado();
-      
-      
-    
       function validation(){
          do {
           if(isNaN(dato)){
               alert('ingrese un numero valido');
               prumpt();
             } else if(dato < 1){
-              alert('ingrese un numero mayor a 1');
+              alert('ingrese un numero mayor a 0');
               prumpt();
             }else{
             //llama a la funcion que asigna el primer valor 
@@ -102,37 +33,96 @@
         document.getElementById("resultado").appendChild(diiv);
       }
       
-      
-
-     
       function prumpt(){
        dato =  parseInt(prompt("ingrese un numero", ""));
        console.log("el dato es :", dato);
        return dato;
       }
 
-      function asignaValores(dato){
+      function asignaValores(){
        if(typeof numero1 === "undefined"){
          numero1 = dato;
-         console.log(numero1, dato);
          prumpt();
          validation();
        }else{
          numero2 = dato;
-         console.log("num2", numero2);
        }
-        dos =[numero1,numero2];
-        return dos;
+       if(numero2 === numero1){
+         alert("ingresa un numero mayor no igual");
+         prumpt();
+         validation();
+       }
+
+        //dos =[numero1,numero2];
+        //return dos;
       }
 
-      function elMayor(dos){
-        console.log("los numeros son: ", dos);
-        for(var i = 1; i<= dos.length;i++){
+      function elMayor(/*dos*/){
+        /* for(var i = 1; i<= dos.length;i++){
           console.log(dos[i]);
-         mayor = Math.max(dos[i], dos[i]);
-         return mayor;
-        }
+          mayor = Math.max(dos[i], dos[i]);
+          return mayor;
+          //esta es la version en caso d que usara un arreglo
+        }*/
+        mayor = Math.max(numero1,numero2);
+      }   
+      
+    </script>
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <header>
+      <ul>
+        <li><a href="ejercicio1.html">ex 1</a></li>
+        <li><a href="ejercicioUno.html">ex uno</a></li>
+        <li><a href="ejercicio2.html">ex 2</a></li>
+        <li><a href="ejercicio3.html">ex 3</a></li>
+      </ul>
+    </header>
+    <h1>
+      Armar un sistema con una función que recibe dos parámetros del tipo entero y devuelve el mayor de ellos. 
+      
+      Hacer un programa que llame 5 veces a la función
+      pidiendo en cada oportunidad los datos al usuario y escribiendo en la página cada resultado.
+    </h1>
+    <div id="resultado"></div>
+
+    <small>No logre hacer que se imprimiera cuando termina cada uno de los ciclos</small>
+    <script>
+      var dato;
+      var numero1;
+      var numero2;
+      var dos = []; //version con arreglos
+      var mayor;
+      var diiv;
+      var texto;
+      var contador = 0;
+
+    for(var i =1; i <=5;i++){
+      if(numero1 !== "undefined"){
+        numero1 = undefined;
       }
+      prumpt();
+      validation();
+      asignaValores();
+      elMayor();
+      muestraResultado();
+
+    }
+     
+
+   
+     
+  
+ 
+      
+       
+      
+      
+    
+
     </script>
   </body>
 </html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>funciones</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">  
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <header>
+        <ul>
+          <li><a href="ejercicio1.html">ex 1</a></li>
+          <li><a href="ejercicioUno.html">ex uno</a></li>
+          <li><a href="ejercicio2.html">ex 2</a></li>
+          <li><a href="ejercicio3.html">ex 3</a></li>
+        </ul>
+      </header>
+    <h1>
+        Hacer una función que escriba en la página una secuencia como la siguiente:<br>
+        # <br>
+        ## <br>
+        ### <br>
+        La función debe tener dos parámetros. Uno de los parámetros es el carácter que
+        se muestra (en el ejemplo es un #). 
+        El otro parámetro de la función determina la cantidad de líneas. 
+        
+        Hacer un programa principal que pregunte al usuario los dos
+        datos de los parámetros verificando que el dato para la cantidad de líneas sea un número
+    </h1>
+    <div id="result"></div>
+    <script>
+      var salida= "";
+      var usuarioSimbolo = prompt("ingrese un caracter", "");
+      numeroValido();
+
+      while(isNaN(numero)){
+        alert("ingrese un dato numerico");
+        numeroValido();
+      }
+      imprimirSecuencia(numero, usuarioSimbolo);
+
+      function numeroValido(){
+        numero = Number(prompt("ingrese un numero"));
+        return numero;
+      }
+      function imprimirSecuencia(numero, usuarioSimbolo){
+        for(var i = 1; i <= numero; i++){
+          for(var j= 1; j <= i;j++) {
+            salida +=  usuarioSimbolo + " ";
+            
+          }
+          document.write(salida + "<br>");
+          
+          salida="";
+          
+          
+        }
+       
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>index tarea 6 funciones</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">  
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <header>
+      <ul>
+        <li><a href="ejercicio1.html">ex 1</a></li>
+        <li><a href="ejercicioUno.html">ex uno</a></li>
+        <li><a href="ejercicio2.html">ex 2</a></li>
+        <li><a href="ejercicio3.html">ex 3</a></li>
+
+      </ul>
+    </header>
+    <section>
+     
+        <h1>
+        Hacer un programa que pide al usuario un total de 10 datos. Se quiere verificar
+        cuántos de los datos ingresados son números múltiplos de 7. Para determinar si
+        los datos cumplen con la condición (múltiplos de 7) utilizar una función. Mostrar
+        cuántos datos cumplieron con la condición y cuántos no cumplieron con la
+        condición en un espacio predefinido para los resultados. (No se puede usar
+        document.write).
+        </h1>
+        <div id="resultados"></div>
+
+  
+    </section>
+    <script>
+      var usuario;
+      var esMultiplo = 0;
+      var noEs = 0;
+      for(var i=1; i <= 10; i++){
+        preguntaDato();
+        multiplos(usuario);
+      }
+      document.getElementById("resultados").innerText="son multiplos: " + esMultiplo + "  " + "no son multiplos: " + noEs;
+
+      function preguntaDato(){
+        usuario = Number(prompt("ingrese un numero", ""));
+        return usuario;
+      }
+      function multiplos(a){
+        if(usuario % 7 == 0){
+          console.log(usuario, " es multiplo");
+          esMultiplo++;
+          console.log(esMultiplo);
+        } else {
+          noEs++;
+        }
+      }
+    </script>
+  </body>
+</html>

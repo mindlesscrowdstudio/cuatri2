@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">  
+  </head>
+
+  <script>
+function boton(){
+        again.innerText = "Desea hacer otra resta?";
+        resultados.appendChild(again);
+        si.innerText = "SI";
+        si.className = "si";
+        var no = document.createElement("button");
+        no.innerText = "NO";
+        again.appendChild(si);
+        again.appendChild(no);  
+        si.onclick = function () {        
+          console.log("was clicked");
+          
+        };
+      }
+  
+
+      /*pide numeros al usuario*/
+      function prumpt(){
+       numero =  parseInt(prompt("ingrese un numero", ""));
+       console.log("el dato es :", numero);
+       return numero;
+      }
+      function validation(){
+         do {
+          if(isNaN(numero)){
+              alert('ingrese un numero valido');
+              prumpt();
+            } else if(numero < 1){
+              alert('ingrese un numero mayor a 0');
+              prumpt();
+            }else{
+            //llama a la funcion que asigna el primer valor 
+            asignaValores(numero);         
+          }
+        } while ((isNaN(numero)) || numero < 1 );     
+      }
+      function asignaValores(){
+        if(typeof dato1 === "undefined"){
+          dato1 = numero;
+          prumpt();
+        } else {
+          dato2 = numero;
+        }
+        if(dato2 === dato1){
+        /* mensaje = document.createTextNode("Ingrese 2 numeros distintos");
+          parrafo.appendChild(mensaje);
+          parrafo.style.visibility= "visible";  
+          //no sè bien como hacer que el mensaje se muestre dentro de un div sin que antes se ejecuta la funcion prumpt. Me muestra el mensaje de error pero despues de que prompt pide nuevamente al usuario que ingrese un valor. 
+          */
+          alert("ingrese un numero que no sea igual");
+          prumpt();
+          validation();
+        }
+      }
+
+      function mayor(){
+        nMayor = Math.max(dato1,dato2);
+        return nMayor;
+      }
+
+      function menor(){
+        nMenor = Math.min(dato1,dato2);
+        return nMenor;
+      }
+
+      function mostrarOperacion(){
+        contenido = document.createTextNode(nMayor + "  -  ");
+        showResta.appendChild(contenido);
+        resultados.appendChild(showResta);
+        
+        contenido = document.createTextNode(nMenor + " = " + resta() );
+        showResta.appendChild(contenido);
+        resultados.appendChild(showResta);
+
+      }
+
+      function resta(){
+       nTotal =   nMayor - nMenor;
+       return nTotal;
+      }
+
+  </script>
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <header>
+        <ul>
+          <li><a href="ejercicio1.html">ex 1</a></li>
+          <li><a href="ejercicioUno.html">ex uno</a></li>
+          <li><a href="ejercicio2.html">ex 2</a></li>
+          <li><a href="ejercicio3.html">ex 3</a></li>
+        </ul>
+      </header>
+    <h1>
+      Hacer un sistema que pida dos números al usuario
+      
+      y calcule la resta entre el mayor y el menor de los números ingresados. 
+      
+      Verificar que los datos ingresados sean números y si no lo son pedirlos nuevamente al usuario. 
+      
+      Hacer una función para realizar el cálculo. 
+      
+      Escribir la operación realizada y el resultado en la página.
+
+      Cuando se trate de dos números iguales no realizar la operación y escribir un
+      mensaje. 
+      
+      Luego de cada operación preguntar al usuario si desea realizar una
+      nueva operación o concluir el programa
+    </h1>
+    <p id="anuncios"></p>
+    <div id="resultado"></div>
+    <script>
+      var numero;
+      var dato1;
+      var dato2;
+      var parrafo = document.getElementById("anuncios");
+      var mensaje;
+      var nMayor;
+      var showResta = document.createElement("span");
+      var resultados = document.getElementById("resultado");
+      var contenido;
+      var pregunta;
+      var again = document.createElement("h3");
+      var wasClicked = false;
+      var si = document.createElement("button");
+
+      
+      prumpt();
+      validation();
+      asignaValores();
+      mayor();
+      menor();
+      mostrarOperacion();
+      setTimeout(function(){ 
+        repetir = confirm("desea hacer otra operacion ?");
+       }, 2000);
+  
+     
+      
+      
+
+
+ 
+      
+       
+      
+      
+    
+
+    </script>
+  </body>
+</html>
